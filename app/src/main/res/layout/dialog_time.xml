@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/outside"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        android:orientation="vertical" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="30dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:gravity="center">
+
+                <EditText
+                    android:id="@+id/year_text"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/not_focus_card_border"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="4"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/year"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/month_text"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/not_focus_card_border"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/month"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/day_text"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/not_focus_card_border"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/day"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:gravity="center">
+
+                <EditText
+                    android:id="@+id/hour_text"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/not_focus_card_border"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:text="@string/hour"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/minute_text"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/not_focus_card_border"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="@string/minute"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:gravity="center_vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="25dp"
+                    app:cardElevation="0dp">
+
+                    <TextView
+                        android:id="@+id/cancel_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/editorFrameColor"
+                        android:gravity="center"
+                        android:text="@string/cancel"
+                        android:textSize="16sp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="25dp"
+                    app:cardElevation="0dp">
+
+                    <TextView
+                        android:id="@+id/sure_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/editorFrameColor"
+                        android:gravity="center"
+                        android:text="@string/sure"
+                        android:textColor="@color/textColor"
+                        android:textSize="16sp" />
+
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

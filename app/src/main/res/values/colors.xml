@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#2796EE</color>
+    <color name="buttonBgColor">#0093F7</color>
+    <color name="textColor">#0283D7</color>
+    <!--    <color name="selectedColColor">#2796EE</color>-->
+    <!--    <color name="colColor">#7DC0F4</color>-->
+    <color name="editorFrameColor">#e6e6e6</color>
+    <color name="categoryOtherColor">#bdbcbc</color>
+    <color name="categorySpendingColor">#ff7d50</color>
+    <color name="categoryRemittanceColor">#569df4</color>
+    <color name="categoryCateringColor">#ff9138</color>
+    <color name="categoryTrafficColor">#ffb74e</color>
+    <color name="categoryEntertainmentColor">#c58aff</color>
+    <color name="categoryShoppingColor">#ff80dd</color>
+    <color name="categoryTelephoneChargeColor">#28cb96</color>
+    <color name="categoryGoDutchColor">#6fc272</color>
+    <color name="categoryRedPacketColor">#ff6364</color>
+    <color name="categoryATMColor">#56c6f4</color>
+    <color name="categoryLifeColor">#98d975</color>
+    <color name="categoryTenementColor">#7575f9</color>
+    <color name="categoryMedicalColor">#f52b2b</color>
+    <color name="categoryEducationColor">#d4874f</color>
+    <color name="categoryIncomeColor">#00cfb4</color>
+    <color name="defaultBgColor">#fff</color>
+    <color name="barChartItemColor">#83c3fa</color>
+    <color name="selectedBarChartItemColor">#309bf6</color>
+    <color name="selectedTextColor">#000</color>
+    <color name="normalTextColor">#7c7c7c</color>
+    <color name="incomeAmountTextColor">#e05723</color>
+    <color name="textColorPrimary">#DD000000</color>    <!--    ?android:attr/textColorPrimary-->
+</resources>

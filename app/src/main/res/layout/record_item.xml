@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/category_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="15dp" />
+
+    <TextView
+        android:id="@+id/info_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/amount_text"
+        android:layout_toRightOf="@id/category_image"
+        android:singleLine="true"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/amount_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/info_text"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@id/checkbox_image"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/way_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/info_text"
+        android:layout_toLeftOf="@id/time_text"
+        android:layout_toRightOf="@id/category_image"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/time_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/amount_text"
+        android:layout_alignRight="@id/amount_text"
+        android:textSize="14sp" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/checkbox_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:src="@drawable/checkbox_down" />
+
+</RelativeLayout>

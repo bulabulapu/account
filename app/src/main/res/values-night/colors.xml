@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#323232</color>
+    <color name="editorFrameColor">#919191</color>
+    <color name="defaultBgColor">#191919</color>
+    <color name="selectedTextColor">#fff</color>
+    <color name="normalTextColor">#838383</color>
+    <color name="textColorPrimary">#DDffffff</color>
+</resources>

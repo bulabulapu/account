@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="18dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/ic_back"
+            android:stateListAnimator="@animator/pressed_animation" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/record_detail"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/delete_button"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/icon_delete_toolbar"
+            android:stateListAnimator="@animator/pressed_animation"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/record_edit_card_border"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:gravity="center_vertical">
+
+            <EditText
+                android:id="@+id/amount_text"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/amount_tip"
+                android:inputType="numberDecimal"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/currency"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:background="@color/editorFrameColor" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/category_image"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp" />
+
+            <TextView
+                android:id="@+id/category_text"
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/category_button"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/editor_expand_btn" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/editorFrameColor" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/time_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/time_button"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="10dp"
+                android:src="@drawable/editor_expand_btn" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:background="@color/editorFrameColor" />
+
+            <TextView
+                android:id="@+id/way_text"
+                android:layout_width="82dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/way_button"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/editor_expand_btn" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/editorFrameColor"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/info_text"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_margin="8dp"
+            android:background="@null"
+            android:gravity="top"
+            android:hint="@string/info_tip"
+            android:padding="5dp"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="20dp"
+        app:cardCornerRadius="25dp">
+
+        <TextView
+            android:id="@+id/save_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/buttonBgColor"
+            android:gravity="center"
+            android:text="@string/save_change"
+            android:textColor="@color/design_default_color_background"
+            android:textSize="16sp" />
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

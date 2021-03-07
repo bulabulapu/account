@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?><!--图片按压效果动画-->
+<!--使用自定义控件实现效果存在性能问题-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <set>
+            <objectAnimator
+                android:duration="100"
+                android:propertyName="scaleX"
+                android:valueTo="0.75" />
+            <objectAnimator
+                android:duration="100"
+                android:propertyName="scaleY"
+                android:valueTo="0.75" />
+        </set>
+    </item>
+
+    <item>
+        <set>
+            <objectAnimator
+                android:duration="100"
+                android:propertyName="scaleX"
+                android:valueTo="1.0" />
+            <objectAnimator
+                android:duration="100"
+                android:propertyName="scaleY"
+                android:valueTo="1.0" />
+        </set>
+    </item>
+</selector>

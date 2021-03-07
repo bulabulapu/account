@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="legendCircle" type="id" />
+    <item name="legendText" type="id" />
+    <item name="pie" type="id" />
+</resources>
