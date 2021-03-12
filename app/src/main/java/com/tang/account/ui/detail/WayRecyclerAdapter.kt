@@ -4,14 +4,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
 import com.tang.account.R
 import com.tang.account.logic.util.RecordTransformer
+import com.tang.account.viewmodel.DetailPreferenceViewModel
 import com.tang.account.viewmodel.DetailViewModel
 
 /*DetailActivity的方式选择弹窗中的RecyclerAdapter*/
 class WayRecyclerAdapter(
-    private val viewModel: DetailViewModel,
+    private val viewModel: ViewModel,
     private val dialogFragment: WayDialogFragment
 ) :
     RecyclerView.Adapter<WayRecyclerAdapter.ViewHolder>() {
@@ -44,7 +46,11 @@ class WayRecyclerAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.text.text = RecordTransformer.transform(list[position])
         holder.text.setOnClickListener {
-            viewModel.setWay(list[position])
+            if (viewModel is DetailViewModel) {
+                viewModel.setWay(list[position])
+            } else if (viewModel is DetailPreferenceViewModel) {
+                viewModel.setWay(list[position])
+            }
             dialogFragment.dismiss()
         }
     }

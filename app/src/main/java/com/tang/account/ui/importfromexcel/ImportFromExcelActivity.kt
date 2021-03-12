@@ -33,7 +33,7 @@ class ImportFromExcelActivity : MyAppCompatActivity() {
         intent.type = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         this.startActivityForResult(
             intent,
-            AccountApplication.RESULT_GET_EXCEL
+            AccountApplication.REQUEST_GET_EXCEL
         ) // 启动选择excel文件activity
         val layoutManager = LinearLayoutManager(this)
         binding.recordRecycler.layoutManager = layoutManager
@@ -52,7 +52,7 @@ class ImportFromExcelActivity : MyAppCompatActivity() {
             }
         }
         binding.confirmButton.setOnClickListener { // 确认按钮监听
-            this.startActivityForResult(intent, AccountApplication.RESULT_GET_EXCEL)
+            this.startActivityForResult(intent, AccountApplication.REQUEST_GET_EXCEL)
         }
         viewModel.loadListFromExcel.observe(this, { flag -> // 加载record
             if (!flag) { // 加载失败
@@ -96,7 +96,7 @@ class ImportFromExcelActivity : MyAppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
-            AccountApplication.RESULT_GET_EXCEL -> if (resultCode == Activity.RESULT_OK && data != null) {
+            AccountApplication.REQUEST_GET_EXCEL -> if (resultCode == Activity.RESULT_OK && data != null) {
                 val uri = data.data
                 uri?.let { // 获取文件uri后加载数据
                     binding.progressBar.visibility = View.VISIBLE

@@ -6,13 +6,13 @@ import android.os.Bundle
 import android.view.*
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.tang.account.R
-import com.tang.account.viewmodel.DetailViewModel
 
 /*DetailActivity的类别选择弹窗*/
-class CategoryDialogFragment(viewModel: DetailViewModel) : DialogFragment() {
+class CategoryDialogFragment(viewModel: ViewModel) : DialogFragment() {
 
     private val adapter = CategoryRecyclerAdapter(viewModel, this)
 

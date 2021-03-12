@@ -82,7 +82,7 @@ class StatisticsActivity : MyAppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == AccountApplication.RESULT_CATEGORY_DETAIL && resultCode == Activity.RESULT_OK) {
+        if (requestCode == AccountApplication.REQUEST_CATEGORY_DETAIL && resultCode == Activity.RESULT_OK) {
             if (data?.getIntExtra(
                     "operation",
                     -1

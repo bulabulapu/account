@@ -61,7 +61,7 @@ class StatisticsRecyclerAdapter(
                 s[2].toLong(),
                 s[3].toLong(),
                 s[0],
-                AccountApplication.RESULT_CATEGORY_DETAIL
+                AccountApplication.REQUEST_CATEGORY_DETAIL
             )
         }
     }

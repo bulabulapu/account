@@ -37,6 +37,17 @@ class DetailViewModel : ViewModel() {
     }
 
     /**
+     * 加载偏好设置
+     */
+    fun loadPrefer() {
+        viewModelScope.launch {
+            val currentPrefer = Repository.loadDetailPreference()
+            category.value = currentPrefer["category_preference"]
+            way.value = currentPrefer["way_preference"]
+        }
+    }
+
+    /**
      * 返回当前的record
      */
     fun getData(): Record = record

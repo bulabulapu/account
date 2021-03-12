@@ -37,4 +37,7 @@
     <string name="detailTip">详细</string>
     <string name="orderByTime">时间↓</string>
     <string name="orderByAmount">金额↓</string>
+    <string name="preference_setting">偏好设置</string>
+    <string name="category_preference">类别</string>
+    <string name="way_preference">方式</string>
 </resources>

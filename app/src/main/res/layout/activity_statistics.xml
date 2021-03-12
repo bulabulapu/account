@@ -15,7 +15,7 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
-            android:src="@drawable/ic_back"
+            android:src="@drawable/icon_back"
             android:stateListAnimator="@animator/pressed_animation" />
 
         <TextView

@@ -6,14 +6,16 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.tang.account.AccountApplication
 import com.tang.account.MyAppCompatActivity
+import com.tang.account.R
 import com.tang.account.databinding.ActivityDetailBinding
 import com.tang.account.logic.util.RecordTransformer
 import com.tang.account.logic.util.TimeUtil
 import com.tang.account.model.Record
+import com.tang.account.ui.detail.preference.DetailPreferenceActivity
 import com.tang.account.ui.mybasewidget.TipDialogFragment
 import com.tang.account.viewmodel.DetailViewModel
 
@@ -62,8 +64,25 @@ class DetailActivity : MyAppCompatActivity() {
         setContentView(binding.root)
         val record = intent.getSerializableExtra("record_data") as Record
         viewModel.setData(record) // 获取传入的record并设置参数显示
-        if (record.id != Record.DEFAULT_ID) { // 为新增操作时隐藏删除按钮
-            binding.deleteButton.visibility = View.VISIBLE
+        if (record.id == Record.DEFAULT_ID) { // 为新增操作时更换为偏好设置按钮
+            binding.functionButton.setImageResource(R.drawable.icon_preference)
+            binding.functionButton.setOnClickListener {
+                this.startActivityForResult(
+                    Intent(this, DetailPreferenceActivity::class.java),
+                    AccountApplication.REQUEST_DETAIL_PREFERENCE
+                )
+            }
+            viewModel.loadPrefer()
+        } else {
+            binding.functionButton.setOnClickListener {
+                TipDialogFragment.show(this, "确认删除本条记录?") {
+                    viewModel.delete()
+                    val intent = Intent()
+                    intent.putExtra("operation", OPERATION_DELETE)
+                    setResult(Activity.RESULT_OK, intent) // 将删除操作标志量传回
+                    finish()
+                }
+            }
         }
         wayDialogFragment = WayDialogFragment(viewModel)
         categoryDialogFragment = CategoryDialogFragment(viewModel)
@@ -98,15 +117,6 @@ class DetailActivity : MyAppCompatActivity() {
             }
         })
         binding.backButton.setOnClickListener { finish() }
-        binding.deleteButton.setOnClickListener {
-            TipDialogFragment.show(this, "确认删除本条记录?") {
-                viewModel.delete()
-                val intent = Intent()
-                intent.putExtra("operation", OPERATION_DELETE)
-                setResult(Activity.RESULT_OK, intent) // 将删除操作标志量传回
-                finish()
-            }
-        }
         binding.saveButton.setOnClickListener { // 保存
             if (binding.amountText.text.toString().isNotEmpty()) {
                 viewModel.setAmount(binding.amountText.text.toString().toFloat())
@@ -121,13 +131,13 @@ class DetailActivity : MyAppCompatActivity() {
             setResult(Activity.RESULT_OK, intent) // 将保存操作标志量和修改后的record传回
             finish()
         })
-        binding.categoryButton.setOnClickListener {
+        binding.categorySelector.setOnClickListener {
             categoryDialogFragment.show(supportFragmentManager, "category_dialog")
         }
-        binding.timeButton.setOnClickListener {
+        binding.timeSelector.setOnClickListener {
             timeDialogFragment.show(supportFragmentManager, "time_dialog")
         }
-        binding.wayButton.setOnClickListener {
+        binding.waySelector.setOnClickListener {
             wayDialogFragment.show(supportFragmentManager, "way_dialog")
         }
         // 各个输入和选择控件的监听
@@ -152,5 +162,12 @@ class DetailActivity : MyAppCompatActivity() {
                 binding.infoText.setText(t)
             }
         })
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == AccountApplication.REQUEST_DETAIL_PREFERENCE) {
+            viewModel.loadPrefer()
+        }
     }
 }

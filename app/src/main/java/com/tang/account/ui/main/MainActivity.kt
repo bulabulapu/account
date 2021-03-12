@@ -67,7 +67,7 @@ class MainActivity : MyAppCompatActivity() {
         binding.statisticsButton.setOnClickListener { // 统计按钮事件
             startActivityForResult(
                 Intent(this, StatisticsActivity::class.java),
-                AccountApplication.RESULT_STATISTICS
+                AccountApplication.REQUEST_STATISTICS
             )
         }
         viewModel.amountStatistics.observe(this, {  // 更改统计数据并显示
@@ -141,7 +141,7 @@ class MainActivity : MyAppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) { // 其他活动结束后的处理
-            AccountApplication.RESULT_IMPORT_EXCEL -> if (resultCode == Activity.RESULT_OK) { // activity:导入excel
+            AccountApplication.REQUEST_IMPORT_EXCEL -> if (resultCode == Activity.RESULT_OK) { // activity:导入excel
                 val status = data?.getBooleanExtra("status", false)
                 if (status == true) {
                     viewModel.clearList()
@@ -149,7 +149,7 @@ class MainActivity : MyAppCompatActivity() {
                     viewModel.loadAllRecords()
                 }
             }
-            AccountApplication.RESULT_IMPORT_MI_BAK -> if (resultCode == Activity.RESULT_OK) { // activity:导入MIUI备份文件
+            AccountApplication.REQUEST_IMPORT_MI_BAK -> if (resultCode == Activity.RESULT_OK) { // activity:导入MIUI备份文件
                 val status = data?.getBooleanExtra("status", false)
                 if (status == true) {
                     viewModel.clearList()
@@ -157,7 +157,7 @@ class MainActivity : MyAppCompatActivity() {
                     viewModel.loadAllRecords()
                 }
             }
-            AccountApplication.RESULT_DETAIL -> if (resultCode == Activity.RESULT_OK) { // activity:查看record详细
+            AccountApplication.REQUEST_DETAIL -> if (resultCode == Activity.RESULT_OK) { // activity:查看record详细
                 when (data?.getIntExtra("operation", -1)) {
                     DetailActivity.OPERATION_SAVE -> { // 保存操作
                         (data.getSerializableExtra("data") as Record).let { // 将更改后的record进行替换
@@ -181,7 +181,7 @@ class MainActivity : MyAppCompatActivity() {
                     }
                 }
             }
-            AccountApplication.RESULT_ADD_RECORD -> if (resultCode == Activity.RESULT_OK) { // activity:添加record
+            AccountApplication.REQUEST_ADD_RECORD -> if (resultCode == Activity.RESULT_OK) { // activity:添加record
                 val operation = data?.getIntExtra("operation", -1)
                 (data?.getSerializableExtra("data") as Record).let {
                     if (operation == DetailActivity.OPERATION_SAVE && judgeNeedToDisplay(it)) { //进行保存操作且满足以下条件时添加显示(添加为支出类且当前显示不为我的收入 或者 添加为收入类且当前显示不为我的支出)
@@ -190,7 +190,7 @@ class MainActivity : MyAppCompatActivity() {
                     }
                 }
             }
-            AccountApplication.RESULT_STATISTICS -> if (resultCode == Activity.RESULT_OK) { // activity:统计activity
+            AccountApplication.REQUEST_STATISTICS -> if (resultCode == Activity.RESULT_OK) { // activity:统计activity
                 val operation = data?.getIntExtra("operation", -1)
                 if (operation == StatisticsActivity.OPERATION_DATA_FIXED) {
                     viewModel.clearList()
@@ -294,7 +294,7 @@ class MainActivity : MyAppCompatActivity() {
         binding.importFromExcelFab.setOnclickListener { // 导入excel按钮事件
             startActivityForResult(
                 Intent(this, ImportFromExcelActivity::class.java),
-                AccountApplication.RESULT_IMPORT_EXCEL
+                AccountApplication.REQUEST_IMPORT_EXCEL
             )
             delayExecute(this, 200) {
                 menuHide()
@@ -303,7 +303,7 @@ class MainActivity : MyAppCompatActivity() {
         binding.importFromMiFab.setOnclickListener { //导入MIBak按钮事件
             startActivityForResult(
                 Intent(this, ImportFromMiBakActivity::class.java),
-                AccountApplication.RESULT_IMPORT_MI_BAK
+                AccountApplication.REQUEST_IMPORT_MI_BAK
             )
             delayExecute(this, 200) {
                 menuHide()
@@ -331,7 +331,7 @@ class MainActivity : MyAppCompatActivity() {
                         TimeUtil.getNowTime(),
                         RecordTransformer.ZHI_FU_BAO
                     ),
-                    AccountApplication.RESULT_ADD_RECORD
+                    AccountApplication.REQUEST_ADD_RECORD
                 )
             }
         }

@@ -32,7 +32,7 @@ class ImportFromMiBakActivity : MyAppCompatActivity() {
         intent.type = "*/*"
         this.startActivityForResult(
             intent,
-            AccountApplication.RESULT_GET_MI_BAK
+            AccountApplication.REQUEST_GET_MI_BAK
         )// 启动选择备份文件activity
         val layoutManager = LinearLayoutManager(this)
         binding.recordRecycler.layoutManager = layoutManager
@@ -51,7 +51,7 @@ class ImportFromMiBakActivity : MyAppCompatActivity() {
             }
         }
         binding.confirmButton.setOnClickListener { // 确认按钮监听
-            this.startActivityForResult(intent, AccountApplication.RESULT_GET_MI_BAK)
+            this.startActivityForResult(intent, AccountApplication.REQUEST_GET_MI_BAK)
         }
         viewModel.loadListFromMiBakStatus.observe(this, { flag -> // 加载record
             if (!flag) { // 加载失败
@@ -95,7 +95,7 @@ class ImportFromMiBakActivity : MyAppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
-            AccountApplication.RESULT_GET_MI_BAK -> if (resultCode == Activity.RESULT_OK && data != null) {
+            AccountApplication.REQUEST_GET_MI_BAK -> if (resultCode == Activity.RESULT_OK && data != null) {
                 val uri = data.data
                 uri?.let { // 获取文件uri后加载数据
                     binding.progressBar.visibility = View.VISIBLE

@@ -6,13 +6,13 @@ import android.os.Bundle
 import android.view.*
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.tang.account.R
-import com.tang.account.viewmodel.DetailViewModel
 
 /*DetailActivity的方式选择弹窗*/
-class WayDialogFragment(viewModel: DetailViewModel) : DialogFragment() {
+class WayDialogFragment(viewModel: ViewModel) : DialogFragment() {
 
     private val adapter = WayRecyclerAdapter(viewModel, this)
 

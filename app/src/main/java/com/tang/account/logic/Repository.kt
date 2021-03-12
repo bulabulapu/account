@@ -3,6 +3,7 @@ package com.tang.account.logic
 import android.net.Uri
 import com.tang.account.AccountApplication
 import com.tang.account.logic.database.RecordDatabase
+import com.tang.account.logic.sharedpreferrence.DetailPreferenceDao
 import com.tang.account.model.Record
 import com.tang.account.logic.util.ExcelUtil
 import com.tang.account.logic.util.MiBakUtil
@@ -328,5 +329,23 @@ object Repository {
      */
     suspend fun getEarliestTime() = withContext(Dispatchers.IO) {
         recordDao.getEarliestTime()
+    }
+
+    /**
+     * 保存偏好设置
+     * @param categoryPrefer 类别偏好
+     * @param wayPrefer 支付方式偏好
+     */
+    suspend fun saveDetailPreference(categoryPrefer: String, wayPrefer: String) =
+        withContext(Dispatchers.IO) {
+            DetailPreferenceDao.save(categoryPrefer, wayPrefer)
+        }
+
+    /**
+     * 读取偏好设置
+     * @return 以map方式返回偏好设置
+     */
+    suspend fun loadDetailPreference() = withContext(Dispatchers.IO) {
+        DetailPreferenceDao.load()
     }
 }

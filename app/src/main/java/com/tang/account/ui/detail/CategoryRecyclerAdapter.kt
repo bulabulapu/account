@@ -4,15 +4,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
 import com.tang.account.R
 import com.tang.account.logic.util.RecordTransformer
+import com.tang.account.viewmodel.DetailPreferenceViewModel
 import com.tang.account.viewmodel.DetailViewModel
 import de.hdodenhof.circleimageview.CircleImageView
 
 /*DetailActivity的类别选择弹窗中的RecyclerAdapter*/
 class CategoryRecyclerAdapter(
-    private val viewModel: DetailViewModel,
+    private val viewModel: ViewModel,
     private val dialogFragment: CategoryDialogFragment
 ) :
     RecyclerView.Adapter<CategoryRecyclerAdapter.ViewHolder>() {
@@ -40,11 +42,19 @@ class CategoryRecyclerAdapter(
         holder.text.text = RecordTransformer.transform(list[position])
         holder.image.setImageResource(RecordTransformer.getImageId(list[position]))
         holder.image.setOnClickListener {
-            viewModel.setCategory(list[position])
+            if (viewModel is DetailViewModel) {
+                viewModel.setCategory(list[position])
+            } else if (viewModel is DetailPreferenceViewModel) {
+                viewModel.setCategory(list[position])
+            }
             dialogFragment.dismiss()
         }
         holder.text.setOnClickListener {
-            viewModel.setCategory(list[position])
+            if (viewModel is DetailViewModel) {
+                viewModel.setCategory(list[position])
+            } else if (viewModel is DetailPreferenceViewModel) {
+                viewModel.setCategory(list[position])
+            }
             dialogFragment.dismiss()
         }
     }

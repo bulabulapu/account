@@ -89,7 +89,7 @@ class CategoryDetailActivity : MyAppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == AccountApplication.RESULT_DETAIL && resultCode == Activity.RESULT_OK) {
+        if (requestCode == AccountApplication.REQUEST_DETAIL && resultCode == Activity.RESULT_OK) {
             when (data?.getIntExtra("operation", -1)) {
                 DetailActivity.OPERATION_SAVE -> { // 保存操作
                     viewModel.reloadRecords()

@@ -242,7 +242,7 @@ class RecordRecyclerAdapter(
                                 DetailActivity.actionStart( // 查看record
                                     activity,
                                     record,
-                                    AccountApplication.RESULT_DETAIL
+                                    AccountApplication.REQUEST_DETAIL
                                 )
                             }
                             holder.itemView.setOnLongClickListener { // 长按事件
